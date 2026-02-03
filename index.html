@@ -1,0 +1,822 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscrição – Mundo dos Recheios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #bf0000;
+      --red-dark: #9c0000;
+      --green: #13b900;
+      --green-dark: #005e23;
+      --amber: #ffa000;
+      --amber-dark: #d97203;
+      --black: #111;
+      --gray-900: #1a1a1a;
+      --gray-700: #444;
+      --gray-500: #777;
+      --white: #fff;
+      --bg-image: url("https://marrarabortoloti.com/wp-content/uploads/2023/03/Design-sem-nome.jpg");
+      --shadow: 0 10px 30px rgba(0,0,0,0.2);
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --container: 1140px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      color: var(--gray-700);
+      background: #fff;
+    }
+
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100%, var(--container));
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      position: relative;
+      padding: 70px 0;
+      background: #fff;
+    }
+
+    .section.dark {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .section.dark.hero-follow {
+      margin-top: -52px;
+      padding-top: 90px;
+    }
+
+    .section.image {
+      background: #fff url("https://marrarabortoloti.com/wp-content/uploads/2023/03/Design-sem-nome.jpg") center/cover no-repeat;
+    }
+
+    .section.black {
+      background: #000;
+      color: #fff;
+    }
+
+    .shape-divider {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 52px;
+      overflow: hidden;
+      line-height: 0;
+      z-index: 2;
+    }
+
+    .shape-divider.top {
+      top: -66px;
+      transform: none;
+      background: transparent;
+    }
+
+    .shape-divider.bottom {
+      bottom: 0;
+      transform: translateY(100%);
+    }
+
+    .shape-divider svg {
+      display: block;
+      width: 100%;
+      height: 52px;
+      transform: none;
+    }
+
+    .shape-divider path {
+      fill: var(--red);
+    }
+
+    .hero {
+      background: #fff var(--bg-image) center/cover no-repeat;
+      color: #444;
+      text-align: center;
+      padding: 85px 0 50px;
+      margin-top: -20px;
+      position: relative;
+      overflow: visible;
+    }
+    
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .headline {
+      font-family: "Montserrat", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 35px;
+      margin: 10px auto 12px;
+      max-width: 900px;
+      text-transform: uppercase;
+      color: #444;
+      letter-spacing: 0.2px;
+    }
+
+    .hero .headline .line {
+      display: block;
+    }
+
+    .hero .headline .accent {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .hero .subheadline {
+      font-family: "Montserrat", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 25px;
+      margin: 0 auto 16px;
+      max-width: 900px;
+      color: #444;
+    }
+
+    .hero .subheadline .accent {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .hero .cta-note {
+      font-family: "Montserrat", sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 25px;
+      margin: 8px auto 18px;
+      max-width: 900px;
+      color: #444;
+    }
+
+    .hero .cta-note .accent {
+      color: var(--red);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .video-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 20px auto 14px;
+      max-width: 660px;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      position: relative;
+    }
+
+    .video-frame iframe,
+    .video-frame .video-link {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .video-frame .video-link {
+      background: #000 url("https://i.ytimg.com/vi/gLADWmA1lV0/maxresdefault.jpg") center/cover no-repeat;
+      position: relative;
+    }
+
+    .video-frame .video-link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .video-frame .play {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.65);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+
+    .video-frame .play::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 18px solid #fff;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 4px;
+    }
+
+    .video-frame .video-label {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .video-note {
+      margin: 0 auto 10px;
+      font-size: 0.95rem;
+      color: #666;
+      font-weight: 600;
+    }
+
+    .video-note a {
+      color: var(--red);
+      font-weight: 800;
+      text-decoration: underline;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 24px;
+      border-radius: 20px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.6px;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+    }
+
+    .cta.green {
+      background: linear-gradient(180deg, var(--green), var(--green-dark));
+    }
+
+    .cta.amber {
+      background: linear-gradient(180deg, var(--amber), var(--amber-dark));
+    }
+
+    .section-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+      font-weight: 700;
+      text-align: center;
+      margin: 0 0 30px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      align-items: center;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card.dark {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .testimonial video {
+      width: 100%;
+      border-radius: 14px;
+      margin-top: 16px;
+    }
+
+    .image-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-frame img {
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .image-frame img.round-30 {
+      border-radius: 30px;
+    }
+
+    .img-64 { width: 64%; }
+    .img-65 { width: 65%; }
+    .img-69 { width: 69%; }
+    .img-70 { width: 70%; }
+    .img-74 { width: 74%; }
+    .img-78 { width: 78%; }
+    .img-80 { width: 80%; }
+    .img-81 { width: 81%; }
+    .img-85 { width: 85%; }
+    .img-91 { width: 91%; }
+    .img-100 { width: 100%; }
+
+    .offer {
+      text-align: center;
+      color: #000;
+    }
+
+    .offer .badge {
+      display: inline-block;
+      background: #e41f18;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      margin: 10px 0 20px;
+    }
+
+    .offer .price {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: #000;
+    }
+
+    .offer .price del {
+      color: #ff0000;
+    }
+
+    .offer .installment {
+      color: #008000;
+      font-weight: 700;
+    }
+
+    .faq {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    details {
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      padding: 10px 16px;
+      background: rgba(0,0,0,0.15);
+      color: #fff;
+    }
+
+    summary {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .guarantee {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .footer .socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .footer .socials a {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 2px solid #6a6a6a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .footer small {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #cfcfcf;
+    }
+
+    .hero .cta {
+      font-size: 1.2em;
+      font-weight: 700;
+      line-height: 26px;
+      letter-spacing: 0.8px;
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .hero .cta-wrap {
+      padding: 0 120px;
+    }
+
+    .hero .arrow {
+      width: 28px !important;
+      max-width: 28px !important;
+      height: auto !important;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 0 0;
+      }
+
+      .cta {
+        font-size: 0.9rem;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .offer .price {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="shape-divider top" aria-hidden="true">
+      <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
+        <path d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z" opacity="0.33"></path>
+        <path d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z" opacity="0.66"></path>
+        <path d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z"></path>
+      </svg>
+    </div>
+    <div class="container">
+      <p class="headline">
+        <span class="line">Descubra como <span class="accent">atrair, agradar e viciar</span> seus clientes pelos seus</span>
+        <span class="line">produtos através do coração da confeitaria, <span class="accent">que são os recheios!</span></span>
+      </p>
+      <p class="subheadline">Assista o vídeo para descobrir como <span class="accent">atrair e fidelizar muitos clientes</span> fazendo com que você conquiste uma renda constante na confeitaria.</p>
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/gLADWmA1lV0?rel=0&modestbranding=1"
+          title="Mundo dos Recheios"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p class="video-note">Toque no play para iniciar o vídeo com som.</p>
+      <p class="cta-note">Se você quer ter um cardápio perfeito para viciar seus clientes, ser elogiada por todos e dobrar seu faturamento na confeitaria, <span class="accent">toque no botão</span> abaixo e se inscreva no Mundo dos Recheios <span class="accent">agora</span>.</p>
+      <div class="cta-wrap">
+        <a class="cta green" href="https://go.hotmart.com/G104199187T?ap=84d2" target="_blank" rel="noopener">Toque aqui e se inscreva no Mundo dos Recheios!</a>
+      </div>
+      <div style="margin-top:18px; text-align:center;">
+        <img src="https://marrarabortoloti.com/wp-content/uploads/2023/03/simbolo-de-setas-duplas-para-a-direita-para-avancar.png" alt="Setas" style="width:70px; height:auto; display:inline-block;">
+      </div>
+    </div>
+    <div class="shape-divider bottom" aria-hidden="true">
+      <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
+        <path d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z" opacity="0.33"></path>
+        <path d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z" opacity="0.66"></path>
+        <path d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <section class="section dark hero-follow">
+    <div class="container">
+      <h2 class="section-title">ACESSO IMEDIATO COM UM CONTEÚDO 100% PRÁTICO</h2>
+      <div class="two-col">
+        <div class="image-frame">
+          <img class="img-65" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/ft1.jpg" alt="Aula prática">
+        </div>
+        <div>
+          <p>Você poderá ver as aulas e montar o seu cardápio de sucesso hoje mesmo e começar a pegar suas encomendas! Assim que pegar uma encomenda de um recheio específico, basta abrir o curso e fazer o passo a passo da aula.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" style="color: var(--red);">VEJA O QUE AS ALUNAS ESTÃO DIZENDO</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <img class="img-100" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/Imagem-do-WhatsApp-de-2023-03-27-as-18.49.08ffewf.jpg" alt="Depoimento">
+          <video src="https://marrarabortoloti.com/wp-content/uploads/2023/03/Video-do-WhatsApp-de-2023-03-27-as-17.38.23.mp4" controls preload="metadata"></video>
+        </div>
+        <div class="testimonial">
+          <img class="img-80" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/Imagem-do-WhatsApp-de-2023-03-27-as-18.49.08fsdfsdf.jpg" alt="Depoimento">
+          <video src="https://marrarabortoloti.com/wp-content/uploads/2023/03/Video-do-WhatsApp-de-2023-03-27-as-17.38.24.mp4" controls preload="metadata"></video>
+        </div>
+        <div class="testimonial">
+          <img class="img-91" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/gfgfdgdf.jpg" alt="Depoimento">
+          <video src="https://marrarabortoloti.com/wp-content/uploads/2023/03/Video-do-WhatsApp-de-2023-03-27-as-17.51.50.mp4" controls preload="metadata"></video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <h2 class="section-title">O mercado de confeitaria crescerá ainda mais em 2023</h2>
+      <div class="two-col">
+        <div class="image-frame">
+          <img class="img-100" src="https://marrarabortoloti.com/wp-content/uploads/2023/01/15-bilhoes-1-1024x531-1-1.png" alt="Crescimento">
+        </div>
+        <div>
+          <p>O ano de 2022 foi de mudanças, transformações e crescimento no mercado de confeitaria. Entre janeiro e maio, o setor teve crescimento de faturamento de R$ 5,79 bilhões em comparação ao ano anterior.</p>
+          <p>O mercado cresce a cada ano. Com um cardápio de recheios viciantes, você estará no caminho certo para o sucesso!</p>
+          <a class="cta amber" href="https://go.hotmart.com/G104199187T?ap=84d2" target="_blank" rel="noopener">Eu quero aprender a fazer recheios viciantes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section image">
+    <div class="container">
+      <h2 class="section-title" style="color: var(--red);">O MÉTODO DE ENSINO É EXTREMAMENTE SIMPLES</h2>
+      <p style="text-align:center; max-width:860px; margin:0 auto 30px;">As aulas foram gravadas com explicações nos mínimos detalhes. Se mesmo assim houver dúvidas, nossa equipe de suporte estará pronta para te ajudar.</p>
+      <div class="two-col">
+        <div class="image-frame">
+          <img class="img-70" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/Imagem-do-WhatsApp-de-2023-03-27-as-17.15.53.jpg" alt="Aula detalhada">
+        </div>
+        <div>
+          <p>Mais de 30 aulas com recheios tendência. Você também terá aulas de congelamento, chocolate, marketing e muito mais.</p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:40px;">
+        <div class="image-frame">
+          <img class="img-70" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/Imagem-do-WhatsApp-de-2023-03-27-as-17.14.45gggg.jpg" alt="Apostila">
+        </div>
+        <div>
+          <p>Apostila com mais de 80 receitas escritas! Recheios para todos os tipos de gostos.</p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:40px;">
+        <div class="image-frame">
+          <img class="img-70" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/Imagem-do-WhatsApp-de-2023-03-27-as-17.14.46gfdgg.jpg" alt="Receitas saudáveis">
+        </div>
+        <div>
+          <p>Receitas exclusivas de recheios saudáveis para quem quer evitar o açúcar sem abrir mão do sabor.</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:30px;">
+        <a class="cta green" href="https://go.hotmart.com/G104199187T?ap=84d2" target="_blank" rel="noopener">Quero me inscrever no curso</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <h2 class="section-title">PORQUE TODA CONFEITEIRA DEVE FAZER UM CURSO SOBRE RECHEIOS?</h2>
+      <p style="max-width:900px; margin:0 auto 24px;">Receitas gratuitas não trazem a riqueza de detalhes que você encontra dentro de um curso. Com aulas detalhadas suas chances de errar são quase zero, e você ainda recebe material de apoio em PDF.</p>
+      <div style="text-align:center;">
+        <a class="cta amber" href="https://go.hotmart.com/G104199187T?ap=84d2" target="_blank" rel="noopener">Eu quero me profissionalizar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section image">
+    <div class="shape-divider top" aria-hidden="true">
+      <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
+        <path d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z" opacity="0.33"></path>
+        <path d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z" opacity="0.66"></path>
+        <path d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z"></path>
+      </svg>
+    </div>
+    <div class="container">
+      <h2 class="section-title" style="color: var(--red);">Além do curso, você leva bônus incríveis</h2>
+      <div class="two-col">
+        <div>
+          <h3>Bônus 1 - Apostila de coberturas</h3>
+          <div class="image-frame"><img class="img-64 round-30" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/IMG-20210623-WA0050.jpg" alt="Apostila de coberturas"></div>
+        </div>
+        <div>
+          <p>Aprenda coberturas com ponto perfeito para bolos caseiros e aumente seu ticket médio.</p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:40px;">
+        <div>
+          <h3>Bônus 2 - Apostila de chantilly e chantininho</h3>
+          <div class="image-frame"><img class="img-70 round-30" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/IMG-20220413-WA0067.jpg" alt="Apostila de chantilly"></div>
+        </div>
+        <div>
+          <p>Domine as coberturas mais usadas em decorações de bolos e surpreenda seus clientes.</p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:40px;">
+        <div>
+          <h3>Bônus 3 - Apostila de sobremesas</h3>
+          <div class="image-frame"><img class="img-69 round-30" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/Imagem-do-WhatsApp-de-2023-03-28-as-11.48.24.jpg" alt="Apostila de sobremesas"></div>
+        </div>
+        <div>
+          <p>Transforme recheios em sobremesas lucrativas e amplie seu portfólio.</p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:40px;">
+        <div>
+          <h3>Bônus 4 - Apostila de copos da felicidade</h3>
+          <div class="image-frame"><img class="img-78 round-30" src="https://marrarabortoloti.com/wp-content/uploads/2022/07/quad-8.jpg" alt="Copos da felicidade"></div>
+        </div>
+        <div>
+          <p>Use seus recheios em copos da felicidade e gere renda extra.</p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:40px;">
+        <div>
+          <h3>Bônus 5 - Planilha de precificação</h3>
+          <div class="image-frame"><img class="img-81 round-30" src="https://marrarabortoloti.com/wp-content/uploads/2023/01/photo_2022-09-14_16-42-53.jpg" alt="Planilha de precificação"></div>
+        </div>
+        <div>
+          <p>Controle seus custos e cobre o valor justo para garantir lucro.</p>
+        </div>
+      </div>
+      <div class="two-col" style="margin-top:40px;">
+        <div>
+          <h3>Bônus 6 - Recheios que não vazam</h3>
+          <div class="image-frame"><img class="img-85 round-30" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/Imagem-do-WhatsApp-de-2023-03-27-as-17.13.58ddddd.jpg" alt="Recheios que não vazam"></div>
+        </div>
+        <div>
+          <p>Acesso às 3 aulas do evento para assistir quando quiser.</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:30px;">
+        <a class="cta green" href="https://go.hotmart.com/G104199187T?ap=84d2" target="_blank" rel="noopener">Quero garantir os bônus especiais</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <h2 class="section-title">CONHEÇA SUA GUIA NESTA JORNADA</h2>
+      <div class="two-col">
+        <div class="image-frame">
+          <img class="img-74" src="https://marrarabortoloti.com/wp-content/uploads/2023/03/Imagem-do-WhatsApp-de-2023-03-27-as-17.13.56.jpg" alt="Marrara Bortoloti">
+        </div>
+        <div>
+          <p>Marrara Bortoloti transformou a própria realidade através da confeitaria iniciando com pouco investimento. Criadora de vários cursos online e apostilas que já transformaram a vida de muitas pessoas.</p>
+          <p>Foi professora de mais de 50 mil alunas somando todos os seus cursos e apostilas.</p>
+          <p>Agora, vai facilitar sua vida através do Mundo dos Recheios, um treinamento completo focado nos recheios tendência no Brasil!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section image">
+    <div class="shape-divider bottom" aria-hidden="true">
+      <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
+        <path d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z" opacity="0.33"></path>
+        <path d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z" opacity="0.66"></path>
+        <path d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z"></path>
+      </svg>
+    </div>
+    <div class="container offer">
+      <h2 class="section-title">OFERTA ESPECIAL</h2>
+      <p>POR TEMPO LIMITADO!</p>
+      <div class="badge">ACESSO IMEDIATO COM MAIS DE 70% DE DESCONTO!!</div>
+      <p class="price">DE <del>R$ 397,00</del> POR APENAS <span class="installment">12x R$ 13,13</span></p>
+      <p style="font-weight:700;">OU R$ 127,00 À VISTA</p>
+      <a class="cta green" href="https://go.hotmart.com/G104199187T?ap=84d2" target="_blank" rel="noopener">Quero garantir essa condição especial</a>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <div class="guarantee">
+        <div class="image-frame">
+          <img class="img-100" src="https://marrarabortoloti.com/wp-content/uploads/2023/01/selo-1.png" alt="Garantia">
+        </div>
+        <div>
+          <p><strong>Garantia incondicional de 7 dias!</strong></p>
+          <p>Você compra, assiste ao conteúdo e, se não gostar, devolvemos 100% do valor investido.</p>
+          <p>Suporte: suporte@marrarabortoloti.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <h2 class="section-title">DÚVIDAS FREQUENTES</h2>
+      <div class="faq">
+        <details>
+          <summary>Por que estou compartilhando meus conhecimentos?</summary>
+          <p>A missão é levar conhecimento para acelerar o resultado de confeiteiras que estão passando por dificuldades.</p>
+        </details>
+        <details>
+          <summary>Em quanto tempo terei resultados?</summary>
+          <p>Os resultados variam, mas todo o conteúdo estará disponível de imediato para você colocar em prática.</p>
+        </details>
+        <details>
+          <summary>Existe alguma garantia?</summary>
+          <p>Sim, oferecemos 7 dias de garantia incondicional.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo terei acesso?</summary>
+          <p>Você terá acesso para sempre e suporte por 1 ano.</p>
+        </details>
+        <details>
+          <summary>Posso deixar para comprar depois?</summary>
+          <p>Essa condição especial é válida por tempo limitado.</p>
+        </details>
+        <details>
+          <summary>Como vou receber acesso ao curso?</summary>
+          <p>Você receberá no seu e-mail após a compra (Hotmart).</p>
+        </details>
+      </div>
+      <p style="margin-top:30px; font-size:0.85rem; color:#eee;">Esse produto é comercializado com apoio da Hotmart. A plataforma não faz controle editorial prévio dos produtos comercializados, nem avalia a tecnicidade e experiência daqueles que os produzem. Ao adquiri-lo, o comprador declara estar ciente dessas informações.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="socials">
+      <a href="https://www.facebook.com/escoladebolobymarrara" target="_blank" rel="noopener">Fb</a>
+      <a href="https://www.instagram.com/oficialmarrarabortoloti1/" target="_blank" rel="noopener">Ig</a>
+      <a href="https://www.youtube.com/channel/UC3jbNeed7mbGv5JxFIPuQ9A" target="_blank" rel="noopener">Yt</a>
+    </div>
+    <p><a href="https://marrarabortoloti.com/politica_de_privacidade/" target="_blank" rel="noopener">Política de privacidade</a></p>
+    <small>Copyright © 2025 Marrara Bortoloti. Todos os direitos reservados</small>
+  </footer>
+</body>
+</html>
